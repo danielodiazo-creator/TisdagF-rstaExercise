@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include=".github\NewFolder\" />
+    <None Include=".github\workflows\first-gihub-action.yml" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,29 @@
+name: .NET Build
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Clona el repositorio
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Configura la versión de .NET (puedes cambiarla a 9.0.x si usas .NET 9)
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '9.0.x'
+
+      # Restaura dependencias
+      - name: Restore dependencies
+        run: dotnet restore
+
+      # Compila el proyecto/solución
+      - name: Build
+        run: dotnet build --no-restore --configuration Release
